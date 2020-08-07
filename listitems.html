@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="pulltorefresh.js/dist/pulltorefresh.js" type="text/javascript"></script>
+<script type='text/javascript'>
+    PullToRefresh.init({
+     mainElement: 'body',
+     onRefresh: function(){ window.location.reload(); }
+    });
+    </script>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+
+
+#listItems {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#listItems li {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+.listDiv{
+    display: flex;
+}
+
+.innerListDiv{
+    display: inline-grid;
+}
+
+.title{
+    color: red;
+    font-weight: bold;
+    font-size: medium;
+}
+
+.message{
+    font-weight: normal;
+    font-size: small;
+}
+
+.time{
+    font-weight: normal;
+    font-size: xx-small;
+    margin-top: 0.3rem;
+    color: rgba(41, 41, 41, 0.5);
+}
+
+.innerListDivImg{
+    margin-right: 0.5rem;
+}
+
+
+
+#listItems li:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
+</head>
+<body>
+
+<h2>Ticker Demo</h2>
+
+<ul id="listItems">
+
+
+</ul>
+
+<script>
+    var listItems = [
+        {
+            img: "https://via.placeholder.com/50",
+            title: "Lorem Ipsum is simply",
+            message: "typesetting industry. Lorem Ipsum has been the industry's standard.",
+            time: "8 minutes ago"
+        },
+        {
+            img: "https://via.placeholder.com/50",
+            title: "There are many variations",
+            message: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+            time: "1 hour ago"
+        },
+        {
+            img: "https://via.placeholder.com/50",
+            title: "There are many variations",
+            message: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+            time: "1 hour ago"
+        },
+        {
+            img: "https://via.placeholder.com/50",
+            title: "Lorem Ipsum is simply",
+            message: "typesetting industry. Lorem Ipsum has been the industry's standard.",
+            time: "8 minutes ago"
+        },
+        {
+            img: "https://via.placeholder.com/50",
+            title: "There are many variations",
+            message: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+            time: "1 hour ago"
+        },
+        {
+            img: "https://via.placeholder.com/50",
+            title: "There are many variations",
+            message: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+            time: "1 hour ago"
+        },
+        {
+            img: "https://via.placeholder.com/50",
+            title: "Lorem Ipsum is simply",
+            message: "typesetting industry. Lorem Ipsum has been the industry's standard.",
+            time: "8 minutes ago"
+        },
+        {
+            img: "https://via.placeholder.com/50",
+            title: "There are many variations",
+            message: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+            time: "1 hour ago"
+        },
+        {
+            img: "https://via.placeholder.com/50",
+            title: "There are many variations",
+            message: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+            time: "1 hour ago"
+        }, 
+        {
+            img: "https://via.placeholder.com/50",
+            title: "There are many variations",
+            message: "Contrary to popular belief, Lorem Ipsum is not simply random text.",
+            time: "1 hour ago"
+        }
+        
+    ]
+    
+    function myFunction() {
+        const ul = document.getElementById("listItems");
+        listItems.map(item => {
+            addItem(item.title, item.message, item.img, item.time, ul);
+        })
+    }
+    myFunction();
+
+
+
+    function addItem(title, message, img, time, ul){
+        let li = document.createElement("li");
+
+        let div_wapper = document.createElement("div");
+        div_wapper.setAttribute('class', 'listDiv');
+
+        let div1 = document.createElement("div");
+        div1.setAttribute('class','innerListDivImg');
+
+        let img_elm = document.createElement("img");
+        img_elm.setAttribute('src',img);
+
+        let div2 = document.createElement("div");
+        div2.setAttribute('class','innerListDiv');
+
+        let title_a = document.createElement("a");
+        title_a.setAttribute('class','title');
+        title_a.text = title;
+
+        let time_a = document.createElement("a");
+        time_a.setAttribute('class','time');
+        time_a.text = time;
+
+        let message_a = document.createElement("a");
+        message_a.setAttribute('class','message');
+        message_a.text = message;
+        
+        li.appendChild(div_wapper);
+        div_wapper.appendChild(div1);
+        div_wapper.appendChild(div2);
+        div1.appendChild(img_elm);
+        div2.appendChild(title_a);
+        div2.appendChild(message_a);
+        div2.appendChild(time_a)
+        ul.appendChild(li)
+    }
+
+
+
+    </script>
+
+</body>
+</html>
